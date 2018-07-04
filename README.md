@@ -2,6 +2,15 @@ Hello ! Today, I’m going to try to teach you something : how to use the Newgro
 
 /!\ I'm going to explain you how I've setup medals for my game, Rush. I haven't use all the possibility of the medals, and the system can be improve. But for a basic integration, this is good! /!\
 
+## Index
+
+- [What do you need](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#what-do-you-need)
+- [Setup](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#setup)
+- [On PICO-8](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#on-pico-8)
+- [On Newgrounds](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#on-newgrounds)
+- [On the Text Editor](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#on-the-text-editor)
+- [Sources and thanks](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#sources-and-thanks)
+
 ## What do you need?
 
 - PICO-8 (of curse)
@@ -99,7 +108,7 @@ end
 
 For the test, we are going to setup a basic interaction to test the medals. When you press the ❎ button, we unlock a new medal. So all of our PICO-8 Code is :
 
-```
+```Lua
 --basic medals tutorial
 --by bigaston
 
