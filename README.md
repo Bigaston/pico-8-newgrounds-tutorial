@@ -1,6 +1,6 @@
 Hello ! Today, I’m going to try to teach you something : how to use the Newgrounds Madals system with your PICO-8 game. 
 
-**/!\ I'm going to explain you how I've setup medals for my game, Rush. I haven't use all the possibility of the medals, and the system can be improve. But for a basic integration, this is very good! /!\**
+/!\ I'm going to explain you how I've setup medals for my game, Rush. I haven't use all the possibility of the medals, and the system can be improve. But for a basic integration, this is good! /!\
 
 ## What do you need?
 
@@ -337,9 +337,9 @@ If you like this tutorial, you can [follow me on Twitter](https://twitter.com/Bi
 
 [![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/A0A05WS6)
 
+You can find the demo file [here](./file).
+
 ## Sources and thanks
 
 - The Sean explanation of the PICO-8 GPIO ()[here](https://www.lexaloffle.com/bbs/?tid=3909))
 - The Newgrounds.io Javascript API, for the Javascript code ([here](https://bitbucket.org/newgrounds/newgrounds.io-for-javascript-html5))
-
-Thanks to Asriel for the correction of English.
