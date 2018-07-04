@@ -1,26 +1,17 @@
 Hello ! Today, I’m going to try to teach you something : how to use the Newgrounds Madals system with your PICO-8 game. 
 
-/!\ I'm going to explain you how I've setup medals for my game, Rush. I haven't use all the possibility of the medals, and the system can be improve. But for a basic integration, this is good! /!\
-
-## Index
-
-- [What do you need](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#what-do-you-need)
-- [Setup](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#setup)
-- [On PICO-8](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#on-pico-8)
-- [On Newgrounds](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#on-newgrounds)
-- [On the Text Editor](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#on-the-text-editor)
-- [Sources and thanks](https://github.com/Bigaston/pico-8-newgrounds-tutorial/blob/master/README.md#sources-and-thanks)
+**/!\ I'm going to explain you how I've setup medals for my game, Rush. I haven't used all the possibilities of the medals, therefore the system can be improved. But as a basic integration, this is very good! /!\**
 
 ## What do you need?
 
-- PICO-8 (of curse)
+- PICO-8 (of course)
 - The [Newgrounds.io Javascript API](https://bitbucket.org/newgrounds/newgrounds.io-for-javascript-html5)
 - A text editor (For this guide, I'm going to use [Brackets](http://brackets.io/))
-- A account on Newgrounds
+- Your own account on Newgrounds
 
 ## Setup
 
-The first things you have to do is download the Newgrounds.io Javascript API ([Download here](https://bitbucket.org/newgrounds/newgrounds.io-for-javascript-html5/downloads/)). Open the `.zip` and drag the `src` and the `bin` in a new folder.
+The first things you have to do is to download the Newgrounds.io Javascript API ([Download here](https://bitbucket.org/newgrounds/newgrounds.io-for-javascript-html5/downloads/)). Open the `.zip` and drag the `src` and the `bin` in a new folder.
 
 ![](images/fig1.png)
 *__Fig 1 :__ The content of the `.zip` you download*
@@ -31,9 +22,9 @@ The first things you have to do is download the Newgrounds.io Javascript API ([D
 
 ## On PICO-8
 
-You have your game on PICO-8. For the transfer, we are going to use the GPIO system (if you don't know how it's work, you can read the [Sean explanation](https://www.lexaloffle.com/bbs/?tid=3909), but don't worry, I'm going to explain how to simply use it here).
+You have your game on PICO-8. For the transfer, we are going to use the GPIO system (if you don't know how it's working, you can read the [Sean explanation](https://www.lexaloffle.com/bbs/?tid=3909), but don't worry, I'm going to explain how to simply use it here).
 
-So in PICO-8 you can use 128 pin who can get value between 0 and 255. Normaly it's for the Raspberry Pi and the Pocketchip, but you can get the value with Javascript! You have to poke value on the adress from 0x5f80 to 0x6000. We are going to setup 2 little functions, like that it's easyer to peek and poke value.
+So in PICO-8 you can use 128 pin which can get a value between 0 and 255. Normaly it's for the Raspberry Pi and the Pocketchip, but you can get it too thanks to Javascript! You have to poke value on the adress from 0x5f80 to 0x6000. We are going to setup two small functions, that way it'll be easier to peek and poke the value.
 
 ```Lua
 function set_pin(pin,value) --pin : pin between 0 and 127
@@ -45,9 +36,9 @@ function get_pin(pin) --pin : the pin do you want to get the value
 end
 ```
 
-The methode I've use is not the better, the most optimised but it's work and it's not bad!
+The methode I've use is not the best one or the most optimised but it's working and it's not that bad!
 
-We are going to setup a second function, with this function you can awnser to the API to unlock a new function. We are going to use the pin 0 to said we need to unlock a medals, and the pin 1 to say wich medals we want to unlock. I use 2 pin because if you want to create other system, like sharable score, you can change the value of the pin 0, you don't have conflicts with that.
+We are going to setup a second function, with this function you can ask to the API to unlock a new function. We are going to use the pin "0" to say we need to unlock a medals, and the pin 1 to say which medal we want to unlock. I use 2 pin because if you want to create another system, like a sharable score, you can change the value of the pin 0 so you don't have conflicts with that.
 
 So the function is very simple :
 
@@ -58,9 +49,9 @@ function unlock_medals(num) --num : the number of the medals we are
 end
 ```
 
-Now, we are going to setup the Unlock Medals sound and visual effect in PICO-8. We are going to use the pin 0 for the triger and the pin 1 for the number of the medals.
+Now, we are going to setup the Unlock Medals sound and visual effect in PICO-8. We are going to use the pin 0 for the trigger and the pin 1 for the number of the medals.
 
-Let's setup a function to detect that. You have to put it in the `_update` function.
+Let us setup a function to detect that. You have to put it in the `_update` function.
 
 ```Lua
 function test_medals()	
@@ -97,7 +88,7 @@ function draw_medals()
 end
 ```
 
-We just need a last function, to init the variable. Put it in the `_init` function.
+We just need a last function, to "init" the variable. Put it in the `_init` function.
 
 ```Lua
 function init_medals()
@@ -108,7 +99,7 @@ end
 
 For the test, we are going to setup a basic interaction to test the medals. When you press the ❎ button, we unlock a new medal. So all of our PICO-8 Code is :
 
-```Lua
+```
 --basic medals tutorial
 --by bigaston
 
@@ -179,18 +170,18 @@ Just copy this sprite in the first place of your sprite sheet :
 [gfx]0808555555555bbbbbb55bbbbbb55bbbb7b55b7b7bb55bb7bbb55bbbbbb555555555[/gfx]
 ```
 
-Or, you can just download the cardrige :  
+Or, you can just download the cartridge :  
 ![](images/ng_medals.p8.png)
 
-To finish, you just have to export the game in HTML5. After that, just copy your `.html` file and your `.js` file and it's done! You have finish with PICO-8!
+To finish, just export the game in HTML5. After that, just copy your `.html` and `.js` file and it's done! You have finished the job with PICO-8!
 
 ## On Newgrounds
 
 Now we are going to setup the game on Newgrounds to have access to the API. Create a new games [here](https://www.newgrounds.com/projects/games).
 
-Now you have to complete the information about the game (like the picture, the description, ...). We will upload the games files later.
+Now you have to complete the information about the game (as the picture, the description, ...). We will upload the games files later.
 
-Just go to the **API Tool** line (on the left). Read and aprove the text. Now just click on `Click here to use the Newgrounds.io API for this game!`
+Jump to the **API Tool** line (on the left). Read and aprove the text. Now just click on `Click here to use the Newgrounds.io API for this game!`
 
 ![](images/fig3.PNG)
 *__Fig 3 :__ Where you have to click*
@@ -203,7 +194,7 @@ You have to get the App ID and the Base64 Encryption Keys.
 ![](images/fig5.PNG)
 *__Fig 5 :__ The Encryption Keys*
 
-Note it somewhere, you need it after. Now we are going to setup the medals. We have made one medals in PICO-8 so we are going to add it on Newgrounds.
+Note it somewhere, you'll need it later. Now we are going to setup the medals. We have already made one medals in PICO-8 so we are going to add it on Newgrounds.
 
 Go to `Medals` line under the `API Tools` line. Here you can setup the medals.
 
@@ -212,25 +203,25 @@ Add a new medals.
 ![](images/fig6.PNG)
 *__Fig 6 :__ Some medals information*
 
-Click on Submit and take the Medals ID. If you want the medals appared on the game's page, you have to unlock it once with your game.
+Click on Submit and take the Medals ID. If you want the medals to appear on the game's page, you have to unlock it once with your game.
 
 ![](images/fig7.PNG)
 *__Fig 7 :__ The Medal ID*
 
-We have finish for Newgrounds for now. Now we need to use a text editor to edit the `.html` of the game.
+We have finish with Newgrounds for now. Now we need to use a text editor to edit the `.html` of the game.
 
 ## On the Text Editor
 
-So! We have to edit the `.html` export by PICO-8. I'm going to share with you premade code. You can find the Newgrounds part on the [bitbucket page of the Javascript API](https://bitbucket.org/newgrounds/newgrounds.io-for-javascript-html5).
+So! We have to edit the `.html` export by PICO-8. I'm going to share with you some premade code. You can find the Newgrounds part on the [bitbucket page of the Javascript API](https://bitbucket.org/newgrounds/newgrounds.io-for-javascript-html5).
 
-We need to import the `newgroundsio.js` file. Add the next line on the `<head>` part of your document. And you need the JQuery module.
+We need to import the `newgroundsio.js` file. Add a line on the `<head>` part of your document. And you need the JQuery module.
 
 ```Javascript
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="bin/newgroundsio.js" type="text/javascript"></script>
 ```
 
-Now I'm going to share you a premade code you can use to enable medals. You can read the comment to understand how it's work. You just have to put this code on `<script>` section before this line : `<script async type="text/javascript" src="your_game.js"></script>`
+Now I'm going to share you a premade code that you can use to enable medals. You can read the comment to understand how it's work. You just have to put this code on `<script>` section before this line : `<script async type="text/javascript" src="your_game.js"></script>`
 
 ```Javascript
 var pico8_gpio = new Array(128); //Enable the PICO-8 GPIO
@@ -340,15 +331,15 @@ function UnlockMedal(medal_id) {
 }()) // call immediately to start the loop
 ```
 
-Now you just have to rename your HTML file on `index.html`, create a ZIP Archive with your `.js` file, your `.html` file, and the `bin` and `src` folder. Just upload that on Newgrounds and it's done! Just unlock the medals to validate it.
+Now you just have to rename your HTML file to `index.html`, create a ZIP Archive with your `.js` file, your `.html` file, the `bin` and `src` folder. Just upload the whole archive on Newgrounds and it's done! Just unlock the medals to validate it.
 
 If you like this tutorial, you can [follow me on Twitter](https://twitter.com/Bigaston), visit [my Itch page](https://bigaston.itch.io).
 
 [![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/A0A05WS6)
 
-You can find the demo file [here](./file).
-
 ## Sources and thanks
 
 - The Sean explanation of the PICO-8 GPIO ()[here](https://www.lexaloffle.com/bbs/?tid=3909))
 - The Newgrounds.io Javascript API, for the Javascript code ([here](https://bitbucket.org/newgrounds/newgrounds.io-for-javascript-html5))
+
+Thanks to Asriel for the correction of English.
