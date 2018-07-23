@@ -1,6 +1,6 @@
-Hello ! Today, I’m going to try to teach you something : how to use the Newgrounds Madals system with your PICO-8 game. 
+Hello ! Today, I’m going to try to teach you something : how to use the Newgrounds Medals system with your PICO-8 game. 
 
-**/!\ I'm going to explain you how I've setup medals for my game, Rush. I haven't used all the possibilities of the medals, therefore the system can be improved. But as a basic integration, this is very good! /!\**
+/!\ I'm going to explain you how I've setup medals for my game, Rush. I haven't used all the possibilities of the medals, therefore the system can be improved. But as a basic integration, this is very good! /!\
 
 ## What do you need?
 
