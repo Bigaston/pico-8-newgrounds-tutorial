@@ -339,7 +339,7 @@ If you like this tutorial, you can [follow me on Twitter](https://twitter.com/Bi
 
 ## Sources and thanks
 
-- The Sean explanation of the PICO-8 GPIO ()[here](https://www.lexaloffle.com/bbs/?tid=3909))
+- The Sean explanation of the PICO-8 GPIO ([here](https://www.lexaloffle.com/bbs/?tid=3909))
 - The Newgrounds.io Javascript API, for the Javascript code ([here](https://bitbucket.org/newgrounds/newgrounds.io-for-javascript-html5))
 
 
